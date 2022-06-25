@@ -1,5 +1,6 @@
 import 'package:contacts/Widget/phone_numbers.dart';
 import 'package:contacts/Widget/search_bar_widget.dart';
+import 'package:contacts/utils/add_contact.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -33,8 +34,10 @@ class _HomePageState extends State<HomePage>
               elevation: 20,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
-              ),
-              onPressed: () {},
+              ), 
+              onPressed: () {
+                   Navigator.push(context, MaterialPageRoute(builder: (context) => AddContact()));
+              },
               child: const Icon(Icons.add, color: Colors.black, size: 30),
             ),
           ),
@@ -74,7 +77,7 @@ class _HomePageState extends State<HomePage>
               color: Colors.black,
               thickness: 0.5,
             ),
-            // PhoneNumbers(), incomplete....
+            // PhoneNumbers(),// incomplete....
           ],
         ));
   }
