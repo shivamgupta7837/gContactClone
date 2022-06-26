@@ -1,6 +1,6 @@
 import 'package:contacts/Widget/phone_numbers.dart';
 import 'package:contacts/Widget/search_bar_widget.dart';
-import 'package:contacts/utils/add_contact.dart';
+import 'package:contacts/screens/add_contact.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {

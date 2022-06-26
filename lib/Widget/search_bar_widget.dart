@@ -1,4 +1,5 @@
 import 'package:contacts/screens/search_contact.dart';
+import 'package:contacts/utils/select_unselect.dart';
 import 'package:flutter/material.dart';
 
 class SearchBarWidget extends StatefulWidget {
@@ -56,13 +57,13 @@ class _SearchBarWidgetState extends State<SearchBarWidget>
                 fontSize: 20,
                 fontWeight: FontWeight.w500)),
       ),
-      actions: const [
+      actions: [
         IconButton(
-            onPressed: null,
-            icon:
-                Icon(Icons.more_vert_rounded, color: Colors.black87, size: 30)),
-        IconButton(
-            onPressed: null,
+            onPressed: () {SelectUnselect();},
+            icon: const Icon(Icons.more_vert_rounded,
+                color: Colors.black87, size: 30)),
+        const IconButton(
+            onPressed:null,
             icon: Icon(Icons.account_circle, color: Colors.black87, size: 35))
       ],
     );
