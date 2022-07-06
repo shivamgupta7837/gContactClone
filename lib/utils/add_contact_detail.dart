@@ -7,31 +7,95 @@ class AddContactDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left:14.0),
-                      child: Icon( icon,size: 30),
+    // return OrientationBuilder(builder: (context, Orientation orientation) {
+    //       if (orientation == Orientation.portrait) {
+    //         return portrateContactDetail();
+    //       } else {
+    //         return landScapeContactDetail();
+    //       }
+    //     });
+    return   Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left:14.0),
+                    child: Icon( icon,size: 30),
+                  ),
+                  SizedBox(width: 10,),
+                  Container(
+                    height: 80,
+                    width: 305,
+                    child: TextField(
+                      decoration: InputDecoration(
+                          labelText: detail,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(2),
+                          )),
                     ),
-                    SizedBox(width: 10,),
-                    Container(
-                      height: 85,
-                      width: 340,
-                      child: TextField(
-                        decoration: InputDecoration(
-                            labelText: detail,
-                            border: OutlineInputBorder(
-                             borderSide: BorderSide(color: Colors.black,style: BorderStyle.solid),
-                              borderRadius: BorderRadius.circular(10),
-                            )),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            );
+                  ),
+                ],
+              ),
+            ],
+          );
   }
-}
+  
+  // Widget portrateContactDetail() {
+  //   return Column(
+  //           children: [
+  //             Row(
+  //               // mainAxisAlignment: MainAxisAlignment.start,
+  //               children: [
+  //                 Padding(
+  //                   padding: const EdgeInsets.only(left:14.0),
+  //                   child: Icon( icon,size: 30),
+  //                 ),
+  //                 SizedBox(width: 10,),
+  //                 Container(
+  //                   height: 80,
+  //                   width: 300,
+  //                   child: TextField(
+  //                     decoration: InputDecoration(
+  //                         labelText: detail,
+  //                         border: OutlineInputBorder(
+  //                           borderRadius: BorderRadius.circular(2),
+  //                         )),
+  //                   ),
+  //                 ),
+  //               ],
+  //             ),
+  //           ],
+  //         );
+  // }
+  
+  // Widget landScapeContactDetail() {
+  //   return Column(
+  //           children: [
+  //             Row(
+  //               mainAxisAlignment: MainAxisAlignment.start,
+  //               children: [
+  //                 Padding(
+  //                   padding: const EdgeInsets.only(left:14.0),
+  //                   child: Icon( icon,size: 30),
+  //                 ),
+  //                 SizedBox(width: 10,),
+  //                 Container(
+  //                   height: 80,
+  //                   // width: 500,
+  //                   child: TextField(
+  //                     decoration: InputDecoration(
+  //                         labelText: detail,
+  //                         border: OutlineInputBorder(
+  //                           borderRadius: BorderRadius.circular(2),
+  //                         )),
+  //                   ),
+  //                 ),
+  //               ],
+  //             ),
+  //           ],
+  //         );
+  // }
+} 
+
+

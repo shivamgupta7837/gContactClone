@@ -1,6 +1,7 @@
+import 'package:contacts/Widget/popUpMenu.dart';
 import 'package:contacts/screens/search_contact.dart';
-import 'package:contacts/utils/select_unselect.dart';
 import 'package:flutter/material.dart';
+import '../globalVars/globals.dart' as globals;
 
 class SearchBarWidget extends StatefulWidget {
   IconData? moreIcon;
@@ -16,56 +17,64 @@ class SearchBarWidget extends StatefulWidget {
   State<SearchBarWidget> createState() => _SearchBarWidgetState();
 }
 
-class _SearchBarWidgetState extends State<SearchBarWidget>
-    with SingleTickerProviderStateMixin {
-//  late AnimationController _menuIconController;
+class _SearchBarWidgetState extends State<SearchBarWidget>{
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _menuIconController = AnimationController(
-  //       vsync: this, duration: const Duration(milliseconds: 2000));
-  //   _menuIconController.forward();
-  // }
-
+ bool _isContainerVisible = false;
+Color searchBoxBg = Color(0xFFeff3fc);
+  List<String> popList = ['Select', 'Select all', 'Customise view'];
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      backgroundColor: Colors.blueGrey[50],
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
-      elevation: 0,
-      leading: IconButton(
-        // icon: AnimatedIcon(
-        //     icon: AnimatedIcons.menu_arrow, progress: _menuIconController),
-        icon: Icon(Icons.menu, size: 28),
-        color: Colors.black87,
-        // iconSize: 25,
-        onPressed: () {},
+    return PreferredSize(
+       preferredSize:Size.zero, 
+      child: AppBar(
+         iconTheme: IconThemeData(color: Colors.black),
+         toolbarHeight: 50.0,
+        backgroundColor: searchBoxBg,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
+        elevation: 0,
+        primary: false,
+        title: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SearchContact()),
+            );
+            print("object");
+          },
+          child: const Text("Search contacts",
+              style: TextStyle(
+                  color: Colors.black54,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500)),
+        ),
+        actions: [
+          PopupMenuButton(
+            icon: const Icon(Icons.more_vert_rounded,color: Colors.black54,size: 30,),
+            onSelected: ((value) {
+              if(value == "Select"){
+                print("we are on select option");
+              }
+            }),
+            itemBuilder: (conetxt) {
+              return popList
+                  .map((e) => PopupMenuItem(
+                  value: e,
+                          child: Text(
+                        e,
+                        style: const TextStyle(fontSize: 15),
+                      )))
+                  .toList();
+            },
+          ),
+          IconButton(onPressed: (){homeProfile();},
+           icon:  CircleAvatar(backgroundImage: NetworkImage(globals.profileImage),))
+
+        ],
       ),
-      primary: false,
-      title: GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => SearchContact()),
-          );
-          print("object");
-        },
-        child: const Text("Search contacts",
-            style: TextStyle(
-                color: Colors.black54,
-                fontSize: 20,
-                fontWeight: FontWeight.w500)),
-      ),
-      actions: [
-        IconButton(
-            onPressed: () {SelectUnselect();},
-            icon: const Icon(Icons.more_vert_rounded,
-                color: Colors.black87, size: 30)),
-        const IconButton(
-            onPressed:null,
-            icon: Icon(Icons.account_circle, color: Colors.black87, size: 35))
-      ],
     );
+  }
+  
+   homeProfile() {
+    print("object");
   }
 }

@@ -1,7 +1,9 @@
+import 'package:contacts/Widget/drawer.dart';
 import 'package:contacts/Widget/phone_numbers.dart';
 import 'package:contacts/Widget/search_bar_widget.dart';
 import 'package:contacts/screens/add_contact.dart';
 import 'package:flutter/material.dart';
+import '../globalVars/globals.dart' as globals;
 
 class HomePage extends StatefulWidget {
   @override
@@ -24,6 +26,7 @@ class _HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer:  NavBar(),
         backgroundColor: Colors.white,
         floatingActionButton: SizedBox(
           height: 64.0,
@@ -51,7 +54,7 @@ class _HomePageState extends State<HomePage>
               child: Stack(
                 children: [
                   Positioned(
-                    top: 30.0,
+                    top: 32.0,
                     left: 18.0,
                     right: 20.0,
                     child: SearchBarWidget(),
@@ -60,15 +63,15 @@ class _HomePageState extends State<HomePage>
               ),
             ),
             Row(
-              children: const [
-                SizedBox(width: 20),
-                Icon(Icons.person_outline_rounded),
-                SizedBox(
+              children:  [
+                const SizedBox(width: 20),
+                const Icon(Icons.person_outline_rounded),
+                const SizedBox(
                   width: 8,
                 ),
                 Text(
-                  "abc@gmail.com 111 contacts",
-                  style: TextStyle(fontWeight: FontWeight.w500),
+                 globals.eailId,
+                  style: const TextStyle(fontWeight: FontWeight.w500),
                 ),
               ],
             ),
@@ -78,6 +81,7 @@ class _HomePageState extends State<HomePage>
               thickness: 0.5,
             ),
             // PhoneNumbers(),// incomplete....
+            
           ],
         ));
   }
@@ -102,6 +106,7 @@ class _HomePageState extends State<HomePage>
       setState(() {
         _curretIndex = newIndex;
       });
-    },);
+    },
+    );
   }
 }
