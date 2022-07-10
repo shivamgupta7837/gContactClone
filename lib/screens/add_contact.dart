@@ -1,65 +1,12 @@
-import 'package:contacts/utils/add_contact_detail.dart';
+import 'package:contacts/Widget/ContactDetail.dart';
+import 'package:contacts/landscapeContactWidgets/AddPhotoLandscape.dart';
 import 'package:contacts/utils/buildSavedto.dart';
 import 'package:flutter/material.dart';
 
-class AddContact extends StatelessWidget {
-  Widget portrate() {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          const BuildSavedto(),
-          const SizedBox(
-            height: 18,
-          ),
-          CircleAvatar(
-            backgroundColor: Color.fromARGB(255, 173, 208, 236),
-            radius: 35,
-            child: Center(
-                child: IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.camera_alt_sharp,
-                color: Colors.black,
-                size: 30,
-              ),
-            )),
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          const Text(
-            "Add photo",
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-          ),
-        const  SizedBox(
-            height: 20,
-          ),
-          AddContactDetail(
-            icon: Icons.person_outline_outlined,
-            detail: "First name",
-          ),
-          AddContactDetail(
-            detail: "Last name",
-          ),
-          AddContactDetail(
-            detail: "Company",
-            icon: Icons.corporate_fare_outlined,
-          ),
-          AddContactDetail(detail: "Phone", icon: Icons.phone),
-          AddContactDetail(detail: "Mobile"),
-          AddContactDetail(
-            detail: "Email",
-            icon: Icons.email_outlined,
-          ),
-          AddContactDetail(detail: "Home"),
-          AddContactDetail(
-              detail: "Significant date", icon: Icons.calendar_month),
-          AddContactDetail(detail: "Birthday"),
-        ],
-      ),
-    );
-  }
+import '../portraitContactWidgets/addPhotos.dart';
 
+class AddContact extends StatelessWidget {
+  
   
 
   @override
@@ -113,17 +60,13 @@ class AddContact extends StatelessWidget {
                 color: Colors.black, fontSize: 25, fontWeight: FontWeight.w400),
           ),
         ),
-        body: OrientationBuilder(builder: (context, Orientation orientation) {
-          if (orientation != Orientation.portrait) {
-            return landscape(context);
-          } else {
-            return portrate();
-          }
-        }));
+       body: LayoutDetailsAddContact(context),
+    );
   }
-
-  Widget landscape(BuildContext context) {
-    return SingleChildScrollView(
+  Widget LayoutDetailsAddContact(BuildContext context){
+      Orientation orientation = MediaQuery.of(context).orientation;
+          if (orientation != Orientation.portrait) {
+            return SingleChildScrollView(
       child: Column(
         children: [
            Row(
@@ -135,24 +78,12 @@ class AddContact extends StatelessWidget {
                 color: Colors.white,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    CircleAvatar(
-            backgroundColor: Color.fromARGB(255, 173, 208, 236),
-            radius: 55,
-            child: Center(
-                    child: IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                    Icons.camera_alt_sharp,
-                    color: Colors.black,
-                    size: 30,
-              ),
-            )),
-          ),
-          const SizedBox(
+                  children:const [
+                   AddPhotoLandscape(),
+           SizedBox(
             height: 5,
           ),
-          const Text(
+           Text(
             "Add photo",
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
           ),
@@ -199,5 +130,42 @@ class AddContact extends StatelessWidget {
         ],
       ),
     );
+          } else {
+            return SingleChildScrollView(
+              child: Column(
+                children: [
+                     const BuildSavedto(),
+                     const AddPhoto(),
+                      const Text(
+                  "Add photo",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+          ),
+          SizedBox(height: 25,),
+            AddContactDetail(
+            icon: Icons.person_outline_outlined,
+            detail: "First name",
+          ),
+          AddContactDetail(
+            detail: "Last name",
+          ),
+          AddContactDetail(
+            detail: "Company",
+            icon: Icons.corporate_fare_outlined,
+          ),
+          AddContactDetail(detail: "Phone", icon: Icons.phone),
+          AddContactDetail(detail: "Mobile"),
+          AddContactDetail(
+            detail: "Email",
+            icon: Icons.email_outlined,
+          ),
+          AddContactDetail(detail: "Home"),
+          AddContactDetail(
+              detail: "Significant date", icon: Icons.calendar_month),
+          AddContactDetail(detail: "Birthday"),
+
+                ],
+              ),
+            );
+          }
+        }
   }
-}
