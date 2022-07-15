@@ -5,8 +5,8 @@ import '../globalVars/globals.dart' as globals;
 import 'add_contact.dart';
 
 class PhoneNumbers extends StatelessWidget {
-  const PhoneNumbers({Key? key}) : super(key: key);
-
+  const PhoneNumbers({Key? key}) ;
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(

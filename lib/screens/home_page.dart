@@ -1,7 +1,7 @@
 import 'package:contacts/screens/phone_numbers.dart';
 import 'package:contacts/utils/fixAndManage.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
 
 class HomePage extends StatefulWidget {
   @override
@@ -15,12 +15,15 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
-        bottomNavigationBar: SizedBox(height: 90, child: _buildBottomNav()),
-        body: PageView(
-          controller: pageController, children: const [
-          PhoneNumbers(),
-          FixManage(), ]),);
+      backgroundColor: Colors.white,
+      bottomNavigationBar: SizedBox(height: 90, child: _buildBottomNav()),
+      body: PageView(
+     physics: NeverScrollableScrollPhysics(),
+        controller: pageController, children: const [
+        const PhoneNumbers(),
+        FixManage(),
+      ]),
+    );
   }
 
   BottomNavigationBar _buildBottomNav() {
@@ -41,7 +44,8 @@ class _HomePageState extends State<HomePage> {
         setState(() {
           _curretIndex = newIndex;
         });
-        pageController.animateToPage(newIndex, duration: Duration(milliseconds: 500), curve: Curves.bounceOut);
+        pageController.animateToPage(newIndex,
+            duration: Duration(milliseconds: 500), curve: Curves.decelerate);
       },
     );
   }

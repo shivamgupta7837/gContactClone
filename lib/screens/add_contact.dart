@@ -63,9 +63,11 @@ class AddContact extends StatelessWidget {
        body: LayoutDetailsAddContact(context),
     );
   }
+
   Widget LayoutDetailsAddContact(BuildContext context){
       Orientation orientation = MediaQuery.of(context).orientation;
           if (orientation != Orientation.portrait) {
+           ///LANDSCAPE
             return SingleChildScrollView(
       child: Column(
         children: [
@@ -79,6 +81,7 @@ class AddContact extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children:const [
+                    SizedBox(height: 10,),
                    AddPhotoLandscape(),
            SizedBox(
             height: 5,
@@ -131,10 +134,12 @@ class AddContact extends StatelessWidget {
       ),
     );
           } else {
+            //PORTRAIT
             return SingleChildScrollView(
               child: Column(
                 children: [
                      const BuildSavedto(),
+                     SizedBox(height: 20,),
                      const AddPhoto(),
                       const Text(
                   "Add photo",
