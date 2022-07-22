@@ -36,11 +36,11 @@ class BuildSavedto extends StatelessWidget {
                     SizedBox(
                       height: 40,
                       child: CircleAvatar(
-                        backgroundImage: NetworkImage(globals.profileImage),
+                        backgroundImage: NetworkImage(globals.profileImage),//
                       ),
                     ),
                      Text(
-                      globals.eailId,
+                      globals.emailId,
                       style: const TextStyle(
                           fontSize: 14,
                           color: Colors.black,

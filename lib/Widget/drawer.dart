@@ -56,7 +56,7 @@ class NavBar extends StatelessWidget {
               width: 10,
             ),
             Text(
-              globals.eailId,
+              globals.emailId,
               style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
             )
           ],

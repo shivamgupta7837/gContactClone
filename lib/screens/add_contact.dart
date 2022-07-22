@@ -7,8 +7,6 @@ import '../portraitContactWidgets/addPhotos.dart';
 
 class AddContact extends StatelessWidget {
   
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -140,7 +138,7 @@ class AddContact extends StatelessWidget {
                 children: [
                      const BuildSavedto(),
                      SizedBox(height: 20,),
-                     const AddPhoto(),
+                      AddPhoto(),
                       const Text(
                   "Add photo",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),

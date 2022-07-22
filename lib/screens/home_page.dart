@@ -1,6 +1,5 @@
 import 'package:contacts/screens/phone_numbers.dart';
 import 'package:contacts/utils/fixAndManage.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,8 +18,8 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: SizedBox(height: 90, child: _buildBottomNav()),
       body: PageView(
      physics: NeverScrollableScrollPhysics(),
-        controller: pageController, children: const [
-        const PhoneNumbers(),
+        controller: pageController, children:  [
+         PhoneNumbers(),
         FixManage(),
       ]),
     );

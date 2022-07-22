@@ -1,2 +1,2 @@
 String profileImage = "https://previews.123rf.com/images/aurora72/aurora721606/aurora72160600004/59282566-avatar-girls-icon-woman-icon-illustration-face-of-female-icons-cartoon-style-isolated-woman-avatar-f.jpg?fj=1";
-String eailId = "nancy111@gmail.com";
+String emailId = "nancy111@gmail.com";
