@@ -60,5 +60,16 @@ class _SplashScreenState extends State<SplashScreen> {
             if(contactStatus == PermissionStatus.permanentlyDenied){
               openAppSettings();
             }
+     PermissionStatus cameraStatus =  await Permission.camera.request();
+            if(cameraStatus == PermissionStatus.granted){
+              if(!mounted){}
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomePage()));
+            }
+            if(cameraStatus == PermissionStatus.denied){
+              _askPermission();
+            }
+            if(cameraStatus == PermissionStatus.permanentlyDenied){
+              openAppSettings();
+            }
   }
 }
