@@ -18,7 +18,7 @@ class SearchBarWidget extends StatefulWidget {
 
 class _SearchBarWidgetState extends State<SearchBarWidget>{
 
- bool _isContainerVisible = false;
+
 Color searchBoxBg = Color(0xFFeff3fc);
   List<String> popList = ['Select', 'Select all', 'Customise view'];
   @override

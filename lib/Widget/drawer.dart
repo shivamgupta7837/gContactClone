@@ -30,35 +30,23 @@ class NavBar extends StatelessWidget {
           height: 28,
         ),
         Row(
-          children: const [
-            Padding(
+          children:  [
+           const  Padding(
                 padding: EdgeInsets.only(
                   left: 28,
                 ),
                 child: Icon(Icons.person)),
-            SizedBox(
+           const SizedBox(
               width: 10,
             ),
-            Text(
+            TextButton(
+              child:const Text(
               "All accounts",
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-            )
-          ],
-        ),
-        const SizedBox(height: 20),
-        Row(
-          children: [
-            const Padding(
-              padding: EdgeInsets.only(left: 28),
-              child: Icon(Icons.person_outline_outlined),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500,color: Colors.black),
             ),
-            const SizedBox(
-              width: 10,
-            ),
-            Text(
-              globals.emailId,
-              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-            )
+            onPressed: (){
+
+            },)
           ],
         ),
         const SizedBox(
@@ -85,18 +73,18 @@ class NavBar extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: 16,
+          height: 10,
         ),
         Padding(
           padding: EdgeInsets.only(left: 22),
           child: Row(
-            children: const [
-              Icon(Icons.add),
-              SizedBox(width: 5),
-              Text(
+            children:  [
+            const  Icon(Icons.add),
+             const  SizedBox(width: 5),
+              TextButton(onPressed: (){}, child: const Text(
                 "Create label",
-                style: TextStyle(fontSize: 16),
-              ),
+                style: TextStyle(fontSize: 18,color: Colors.black),
+              ),)
             ],
           ),
         ),

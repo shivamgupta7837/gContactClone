@@ -1,2 +1,2 @@
-String profileImage = "https://previews.123rf.com/images/aurora72/aurora721606/aurora72160600004/59282566-avatar-girls-icon-woman-icon-illustration-face-of-female-icons-cartoon-style-isolated-woman-avatar-f.jpg?fj=1";
-String emailId = "nancy111@gmail.com";
+String profileImage = "https://img.myloview.com/stickers/user-icon-vector-people-icon-profile-vector-icon-person-illustration-business-user-icon-users-group-symbol-male-user-symbol-700-223068865.jpg";
+String emailId = "All accounts";
