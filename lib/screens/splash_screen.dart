@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
   _navigator()async{
     await Future.delayed(const Duration(milliseconds: 1500),
     (){});
-    
+
   }
   @override
   Widget build(BuildContext context) {
@@ -32,13 +32,11 @@ class _SplashScreenState extends State<SplashScreen> {
           padding: EdgeInsets.only(top: 300),
           height: MediaQuery.of(context).size.height,
           child: Stack(
-            // mainAxisAlignment: MainAxisAlignment.center,
             children:  const [
             CircleAvatar(
               backgroundImage: AssetImage('assets/images/logocontact.png'),
               maxRadius: 60,
             ),
-            // SizedBox(height: 300,),
             Positioned(top: 440,
               child: Text('Google ',style: TextStyle(fontSize: 35,),))
             ],
