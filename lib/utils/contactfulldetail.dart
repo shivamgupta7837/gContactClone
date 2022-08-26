@@ -192,7 +192,7 @@ class FullDetail extends StatelessWidget {
                     children: [
                       Column(
                         children: [
-                          Container(
+                          Padding(
                             padding: const EdgeInsets.only(left: 15),
                             child: Row(
                               children: [
@@ -225,7 +225,8 @@ class FullDetail extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                const SizedBox(width: 110,),
+                                 SizedBox(
+                                  width: MediaQuery.of(context).size.width *0.25 ,),
                                   IconButton(
                         onPressed: (){
                                 const snackBar =   SnackBar(content: Text('Sorry!! function not supported yet'));
